@@ -18,7 +18,7 @@ type AppTypes = {
         y?: "top" | "bottom" | "center" | "left" | "right"
     }
     hideCount?: boolean
-    notificationCountVarient?: "Circle" | "Point"
+    notificationCountVariant?: "Circle" | "Point"
     customIcon?: React.ReactNode,
     customCard?: React.ReactNode,
     dropBoxStyle?: React.CSSProperties
@@ -43,7 +43,7 @@ type AppTypes = {
 export const Notify = (props: AppTypes) => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [rootVariables, setRootVariables] = useState<{ [key: string]: string }>({})
-    const { cardPosition = "top", transformOrigin, theme = "Light", hideCount = false, notificationCountVarient, data, customIcon, customCard, customButton, buttonProps, dropBoxStyle, dropBoxShadow, bellIconProps, cardProps, maxCardShown = 3, showShowMoreBtn = true, dropAnimation = "Scale" } = props
+    const { cardPosition = "top", transformOrigin, theme = "Light", hideCount = false, notificationCountVariant, data, customIcon, customCard, customButton, buttonProps, dropBoxStyle, dropBoxShadow, bellIconProps, cardProps, maxCardShown = 3, showShowMoreBtn = true, dropAnimation = "Scale" } = props
     const limitCard = maxCardShown && maxCardShown > data.length ? data.length : maxCardShown
     const TranformOrigin = transformOrigin ? `${transformOrigin.x} ${transformOrigin.y}` : 'top top'
     const buttonStyle = {
@@ -65,7 +65,7 @@ export const Notify = (props: AppTypes) => {
         <div className="notify-box" style={rootVariables}>
             <div className="bell-container">
                 <button className="icon_box" onClick={() => setShowDropdown(prev => !prev)}>
-                    {!hideCount && <span className={`notification_counter ${notificationCountVarient ? `counter-${notificationCountVarient}` : ''}`}><b>{data.length}</b></span>}
+                    {!hideCount && <span className={`notification_counter ${notificationCountVariant ? `counter-${notificationCountVariant}` : ''}`}><b>{data.length}</b></span>}
                     {customIcon ? customIcon : <BellIcon {...bellIconProps} />}
                 </button>
             </div>

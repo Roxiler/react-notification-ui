@@ -76,7 +76,7 @@ https://github.com/Roxiler/react-notification-ui/blob/main/src/App.tsx
 - For theme, number of card shown and hiding count indicator :
 
   ```
-  <Notify data={data} theme="dark" maxCardShown={3} showHideCount="true" />
+  <Notify data={data} theme="dark" maxCardShown={3} hideCount />
  
   ```
 
@@ -113,8 +113,8 @@ https://github.com/Roxiler/react-notification-ui/blob/main/src/App.tsx
 | ------------------------ | -------------- | ---------------------------------------------------------------------------- |
 | cardPosition             | string         | sets card position like "left","right","top","bottom"                        |
 | transformOrigin          | object         | with combination of cardPosition this is used to set origin position x and y |
-| hideCount                | boolean        | set card count visible or hidden                                             |
-| notificationCountVarient | string         | set notification count variant                                               |
+| hideCount                | boolean        | set card count visible or hidden, by default its false                       |
+| notificationCountVariant | string         | set notification count variant                                               |
 | customIcon               | ReactNode      | pass custom icon component                                                   |
 | customCard               | ReactNode      | pass custom card component                                                   |
 | cardProps                | object         | sets card style , variant and onClick to card                                |
