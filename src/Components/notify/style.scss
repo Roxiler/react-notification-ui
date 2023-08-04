@@ -1,0 +1,269 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+}
+
+.bell-container {
+    width: fit-content;
+    height: fit-content;
+
+    .icon_box {
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        z-index: 99;
+        position: relative;
+
+        .notification_counter {
+            position: absolute;
+            right: -.6em;
+            height: 1.2em;
+            width: fit-content;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            border-radius: 0.2em;
+            overflow: hidden;
+
+            b {
+                padding: .25em;
+            }
+        }
+
+        .counter-Circle {
+            border-radius: 50% !important;
+            height: 1.2em;
+            width: 1.3em;
+        }
+
+        .counter-Point {
+            border-radius: 50% !important;
+            height: .8em;
+            width: .8em;
+            right: 0;
+            top: .2em;
+            color: transparent;
+        }
+    }
+}
+
+.notify-box {
+
+    *,
+    ::after,
+    ::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    width: fit-content;
+    padding: .5em;
+    position: relative;
+    isolation: isolate;
+    perspective: 1000px;
+
+    .cardbox {
+        position: absolute;
+        top: 3.5em;
+        background-color: var(--cardColor);
+        width: max-content;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: .25em;
+        z-index: -1;
+
+
+        &.light-border {
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px !important;
+        }
+
+        &.light-border-3d {
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+        }
+
+        &.no-drop {
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px !important;
+        }
+
+        &.bottom-drop {
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px !important;
+        }
+
+        &.very-light-border {
+            box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px !important;
+        }
+
+        &.outline {
+            box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px !important;
+        }
+
+        .view_all_btn {
+            height: 100%;
+            width: 100%;
+            padding: 1.2em;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: var(--cardColor);
+            color: var(--cardPrimaryColor);
+            border: none;
+            cursor: pointer;
+            border-bottom-left-radius: inherit;
+            border-bottom-right-radius: inherit;
+            filter: brightness(var(--filterBrightness));
+            transition: filter 0.3s ease;
+
+
+            &:is(:hover, :focus, :active) {
+                filter: brightness(calc(var(--filterBrightness) + 0.1));
+            }
+        }
+    }
+
+    // Position
+
+    .cardbox-left {
+        left: 110%;
+        top: 5%;
+    }
+
+    .cardbox-right {
+        left: -860%;
+        top: 5%;
+    }
+
+    .cardbox-bottom {
+        top: -660%;
+    }
+
+    // Opening animations
+
+    .cardbox-ScaleDown {
+        animation: growDown 300ms ease-in-out forwards;
+    }
+
+    .cardbox-RotateX {
+        animation: rotateMenu 400ms ease-in-out forwards;
+    }
+
+    .cardbox-TranslateZ {
+        animation: downOut 300ms ease-in-out forwards;
+        transform-origin: center center !important;
+    }
+
+    .cardbox-Scale {
+        animation: growOut 300ms ease-in-out forwards;
+    }
+
+    .cardbox-ScaleIn {
+        animation: growIn 300ms ease-in-out forwards;
+    }
+
+    .cardbox-RotateY {
+        animation: rotateY 300ms ease-in-out forwards;
+    }
+
+    .cardbox-SlideDown {
+        animation: slideDown 300ms ease-in-out forwards;
+    }
+
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateY {
+    0% {
+        transform: rotateY(90deg)
+    }
+
+    80% {
+        transform: rotateY(-10deg)
+    }
+
+    100% {
+        transform: rotateY(0)
+    }
+}
+
+@keyframes growOut {
+    0% {
+        transform: scale(0)
+    }
+
+    80% {
+        transform: scale(1.1)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+@keyframes growIn {
+    0% {
+        transform: scale(1.08)
+    }
+
+    80% {
+        transform: scale(1.03)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+@keyframes downOut {
+    0% {
+        transform: translateZ(200px) transLateY(40px)
+    }
+
+    80% {
+        transform: translateZ(-10px) transLateY(0px)
+    }
+
+    100% {
+        transform: translateZ(0px) transLateY(0px)
+    }
+}
+
+@keyframes rotateMenu {
+    0% {
+        transform: rotateX(-90deg)
+    }
+
+    70% {
+        transform: rotateX(20deg)
+    }
+
+    100% {
+        transform: rotateX(0deg)
+    }
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+
+    50% {
+        transform: scaleY(.9)
+    }
+
+    80% {
+        transform: scaleY(1.1)
+    }
+
+    100% {
+        transform: scaleY(1)
+    }
+}

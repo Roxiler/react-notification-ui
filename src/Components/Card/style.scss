@@ -1,0 +1,128 @@
+$primary_fontsize: var(--cardFontSize);
+$secondary_fontsize: calc(var(--cardFontSize) - 1px);
+$other_font_color: var(--cardSecondaryColor);
+$font_weight: 600;
+$card_title_color: var(--cardPrimaryColor);
+$card_bottom_color: var(--cardBorderColor);
+
+.card {
+    max-width: 400px;
+    padding: 1em !important;
+    border-bottom: solid 1px $card_bottom_color;
+    cursor: pointer;
+    transition: filter 0.5s ease-in-out;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: .8em;
+    z-index: 1;
+
+    &:not(:first-child) {
+        margin-top: .5em !important;
+    }
+
+    &:is(:hover, :focus, :active) {
+        filter: brightness(calc(var(--filterBrightness) + 0.2));
+    }
+
+}
+
+@mixin cardInfo($width: "default") {
+    .card_meta {
+        position: relative;
+
+        @if $width =="default" {
+            max-width: 200px;
+
+        }
+
+        @else {
+            max-width: 260px;
+            width: $width;
+        }
+
+        height: 100%;
+
+        h6 {
+            line-height: 1.5em;
+            font-size: $primary_fontsize;
+            font-weight: $font_weight;
+            color: $card_title_color;
+        }
+
+        p {
+            font-size: $secondary_fontsize;
+            color: $other_font_color;
+            font-weight: calc($font_weight);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .time {
+        font-size: $secondary_fontsize;
+        color: $other_font_color;
+        font-weight: $font_weight;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@mixin imgBox {
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 50%;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.card_one {
+    .img {
+        @include imgBox();
+    }
+
+    @include cardInfo();
+}
+
+.card_two {
+    .img {
+        @include imgBox();
+    }
+
+    @include cardInfo(80%);
+}
+
+.card_three {
+
+    .img {
+        @include imgBox();
+
+        img {
+            border-radius: inherit;
+        }
+    }
+
+    @include cardInfo(80%);
+}
+
+
+
+
+.card_four {
+    .img {
+        @include imgBox();
+
+        img {
+            border-radius: inherit;
+        }
+    }
+
+    @include cardInfo();
+}
